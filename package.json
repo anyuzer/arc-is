@@ -1,0 +1,22 @@
+{
+  "name": "arc-is",
+  "version": "1.0.0",
+  "description": "Simple is() function for typechecking",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://anyuzer@github.com/anyuzer/arc-is.git"
+  },
+  "keywords": [
+    "typechecking"
+  ],
+  "author": "Ian Reid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anyuzer/arc-is/issues"
+  },
+  "homepage": "https://github.com/anyuzer/arc-is#readme"
+}
