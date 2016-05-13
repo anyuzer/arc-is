@@ -1,4 +1,6 @@
-//Table taken from: http://www.ecma-international.org/ecma-262/6.0/ section 18.3
+var is = require('../');
+var assert = require('tap');
+
 var nativeTable = {
     '[object Array]':'Array',
     '[object ArrayBuffer]':'ArrayBuffer',
@@ -35,19 +37,41 @@ var nativeTable = {
     '[object WeakSet]':'WeakSet',
 };
 
-module.exports = function is(_val,_objType){
-    var $return,toString;
-    if(_val === undefined){ return (_objType ? 'Undefined' : 'undefined'); }
-    if(_val === null){ return (_objType ? 'Null' : 'null'); }
+//Array
+assert.equal(is([]),'array');
+assert.equal(is([],true),'Array');
 
-    $return = nativeTable[Object.prototype.toString.call(_val)];
-    if(!_objType){
-        return $return.toLowerCase() || 'object';
-    }
+//ArrayBuffer
+assert.equal(is(new ArrayBuffer),'arraybuffer');
+assert.equal(is(new ArrayBuffer,true),'ArrayBuffer');
 
-    toString = (_val.toString ? _val.toString() : Object.prototype.toString.call(_val)).match(/\[object ([^\]]*)\]/);
-    if(!toString){
-        return $return;
-    }
-    return toString[1];
-};
+//Boolean
+assert.equal(is(true),'boolean');
+assert.equal(is(true,true),'Boolean');
+
+//Boolean
+assert.equal(is(new DataView(new ArrayBuffer)),'dataview');
+assert.equal(is(new DataView(new ArrayBuffer),true),'DataView');
+
+//Date
+assert.equal(is(new Date),'date');
+assert.equal(is(new Date,true),'Date');
+
+//Error
+assert.equal(is(new Error),'error');
+assert.equal(is(new Error,true),'Error');
+
+//EvalError (this returns with Error?)
+assert.equal(is(new EvalError),'error');
+assert.equal(is(new EvalError,true),'Error');
+
+console.log(EvalError.prototype.constructor.name);
+
+
+// //Native Object
+// assert.equal(is({}),'object');
+// assert.equal(is({},true),'Object'); //This is interesting actually.
+//
+// //Data Object
+// assert.equal(is(new Date),'date');
+// assert.equal(is(new Date,true),'Date');
