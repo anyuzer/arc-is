@@ -61,11 +61,26 @@ assert.equal(is(new Date,true),'Date');
 assert.equal(is(new Error),'error');
 assert.equal(is(new Error,true),'Error');
 
-//EvalError (this returns with Error?)
+//EvalError (ES6 subclasses (in this case of Error) do not overwrite their toString, so effectively is ends up calling Errors toString which returns as expected
 assert.equal(is(new EvalError),'error');
 assert.equal(is(new EvalError,true),'Error');
 
-console.log(EvalError.prototype.constructor.name);
+//Float32Array
+assert.equal(is(new Float32Array(1)),'float32array');
+assert.equal(is(new Float32Array(1),true),'Float32Array');
+
+//Float64Array
+assert.equal(is(new Float64Array(1)),'float64array');
+assert.equal(is(new Float64Array(1),true),'Float64Array');
+
+//Function
+assert.equal(is(function(){}),'function');
+assert.equal(is(function(){},true),'Function');
+
+//Int8Array
+assert.equal(is(new Int8Array(1)),'int8array');
+assert.equal(is(new Int8Array(1),true),'Int8Array');
+
 
 
 // //Native Object
