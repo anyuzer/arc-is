@@ -1,6 +1,14 @@
 var is = require('../');
 var assert = require('tap');
 
+//Undefined
+assert.equal(is(undefined),'undefined');
+assert.equal(is(undefined,true),'Undefined');
+
+//Null
+assert.equal(is(null),'null');
+assert.equal(is(null,true),'Null');
+
 //Array
 assert.equal(is([]),'array');
 assert.equal(is([],true),'Array');
