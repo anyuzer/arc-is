@@ -36,7 +36,7 @@ is(simpleObj,true); //Returns 'Object'
 
 var es6global = new Map;
 is(es6global); //Returns 'map'
-is(es6global); //Returns 'Map'
+is(es6global,true); //Returns 'Map'
 
 class MyClass{ toString(){ return '[object '+this.constructor.name+']'; } }
 is(new MyClass); //Returns 'object'
