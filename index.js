@@ -32,16 +32,25 @@ var nativeTable = {
     '[object Uint32Array]':'Uint32Array',
     '[object URIError]':'URIError',
     '[object WeakMap]':'WeakMap',
-    '[object WeakSet]':'WeakSet',
+    '[object WeakSet]':'WeakSet'
 };
 
 module.exports = function is(_val,_objType){
     var $return,toString;
+
     if(_val === undefined){ return (_objType ? 'Undefined' : 'undefined'); }
     if(_val === null){ return (_objType ? 'Null' : 'null'); }
 
     $return = nativeTable[Object.prototype.toString.call(_val)];
-    if(!_objType){
+    if($return === 'Number'){
+        if(isNaN(_val)){
+            return (!_objType ? 'nan' : 'NaN');
+        }
+        if(!isFinite(_val)){
+            return (!_objType ? 'infinity' : 'Infinity');
+        }
+    }
+    if(!_objType && $return){
         return $return.toLowerCase() || 'object';
     }
 
@@ -49,5 +58,6 @@ module.exports = function is(_val,_objType){
     if(!toString){
         return $return;
     }
-    return toString[1];
+
+    return (!_objType ? toString[1].toLowerCase() : toString[1]);
 };
