@@ -21,5 +21,6 @@
   "homepage": "https://github.com/anyuzer/arc-is#readme",
   "devDependencies": {
     "tap": "^5.7.1"
-  }
+  },
+  "dependencies": {}
 }
