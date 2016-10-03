@@ -36,6 +36,7 @@ var nativeTable = {
 };
 
 module.exports = function is(_val,_objType){
+    console.log(_val,_objType);
     var $return,toString;
 
     if(_val === undefined){ return (_objType ? 'Undefined' : 'undefined'); }
@@ -54,7 +55,14 @@ module.exports = function is(_val,_objType){
         return $return.toLowerCase() || 'object';
     }
 
-    toString = (_val.toString ? _val.toString() : Object.prototype.toString.call(_val)).match(/\[object ([^\]]*)\]/);
+    if(_val.toString){
+        toString = _val.toString().match(/\[object ([^\]]*)\]/);
+    }
+
+    if(!toString){
+        toString = Object.prototype.toString.call(_val).match(/\[object ([^\]]*)\]/);
+    }
+
     if(!toString){
         return $return;
     }
