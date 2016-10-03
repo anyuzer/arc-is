@@ -36,7 +36,6 @@ var nativeTable = {
 };
 
 module.exports = function is(_val,_objType){
-    console.log(_val,_objType);
     var $return,toString;
 
     if(_val === undefined){ return (_objType ? 'Undefined' : 'undefined'); }
