@@ -10,6 +10,7 @@ var nativeTable = {
     '[object Float32Array]':'Float32Array',
     '[object Float64Array]':'Float64Array',
     '[object Function]':'Function',
+    '[object AsyncFunction]': 'AsyncFunction',
     '[object Int8Array]':'Int8Array',
     '[object Int16Array]':'Int16Array',
     '[object Int32Array]':'Int32Array',

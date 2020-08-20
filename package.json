@@ -4,7 +4,8 @@
   "description": "Simple is() function for typechecking",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   },
   "homepage": "https://github.com/anyuzer/arc-is#readme",
   "devDependencies": {
-    "tap": "^5.7.1"
+    "jest": "^26.4.1"
   },
   "dependencies": {}
 }
