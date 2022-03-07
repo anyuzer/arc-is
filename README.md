@@ -1,7 +1,5 @@
 # arc-is 
 
-[![Build Status](https://travis-ci.org/anyuzer/arc-is.svg?branch=master)](https://travis-ci.org/anyuzer/arc-is)
-
 A simple, efficient but comprehensive typechecking suite
 
 In addition to native typechecking, it provides reliable behavior for:  
@@ -47,7 +45,7 @@ is(new MyArray); //Returns 'array'
 is(new MyArray,true); //Returns 'MyArray'
 ```
 
-##Caveats
+## Caveats
 * It is far more efficient to not check for a complexType
 * If a class does not overwrite the toString() method, it will return the parent's toString() which will likely be Object
 * This goes for natively extended globally available classes such as the Error subclasses (ie. TypeError), as these do not overwrite the toString() method, they return the parent's toString() which is Error
