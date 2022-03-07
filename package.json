@@ -1,6 +1,6 @@
 {
   "name": "arc-is",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple is() function for typechecking",
   "main": "index.js",
   "scripts": {
