@@ -36,8 +36,8 @@ var nativeTable = {
     '[object WeakSet]':'WeakSet'
 };
 
-module.exports = function is(_val,_objType){
-    var $return,toString;
+export default (_val,_objType) => {
+    let $return,toString;
 
     if(_val === undefined){ return (_objType ? 'Undefined' : 'undefined'); }
     if(_val === null){ return (_objType ? 'Null' : 'null'); }
@@ -68,4 +68,4 @@ module.exports = function is(_val,_objType){
     }
 
     return (!_objType ? toString[1].toLowerCase() : toString[1]);
-};
+}

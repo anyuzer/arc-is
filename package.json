@@ -3,8 +3,9 @@
   "version": "1.0.8",
   "description": "Simple is() function for typechecking",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:watch": "jest --watchAll"
   },
   "repository": {
@@ -21,7 +22,7 @@
   },
   "homepage": "https://github.com/anyuzer/arc-is#readme",
   "devDependencies": {
-    "jest": "^27.5.1"
+    "jest": "^29.2.2"
   },
   "dependencies": {}
 }

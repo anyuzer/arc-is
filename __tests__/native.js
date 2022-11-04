@@ -1,4 +1,4 @@
-const is = require('../index');
+import is from '../index.js';
 
 describe('Is native tests', () => {
     it('should return undefined when value is undefined', () => {

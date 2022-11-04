@@ -1,4 +1,4 @@
-const is = require('../index');
+import is from '../index.js';
 
 //A non-inherited class, with an overwritten toString
 class Other{
