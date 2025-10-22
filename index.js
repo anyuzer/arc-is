@@ -37,13 +37,13 @@ var nativeTable = {
 };
 
 export default (_val,_objType) => {
-    let $return,toString;
+    let typeIs,toString;
 
     if(_val === undefined){ return (_objType ? 'Undefined' : 'undefined'); }
     if(_val === null){ return (_objType ? 'Null' : 'null'); }
 
-    $return = nativeTable[Object.prototype.toString.call(_val)];
-    if($return === 'Number'){
+    typeIs = nativeTable[Object.prototype.toString.call(_val)];
+    if(typeIs === 'Number'){
         if(isNaN(_val)){
             return (!_objType ? 'nan' : 'NaN');
         }
@@ -51,8 +51,9 @@ export default (_val,_objType) => {
             return (!_objType ? 'infinity' : 'Infinity');
         }
     }
-    if(!_objType && $return){
-        return $return.toLowerCase() || 'object';
+
+    if(!_objType && typeIs){
+        return typeIs.toLowerCase();
     }
 
     if(_val.toString){
@@ -61,10 +62,6 @@ export default (_val,_objType) => {
 
     if(!toString){
         toString = Object.prototype.toString.call(_val).match(/\[object ([^\]]*)\]/);
-    }
-
-    if(!toString){
-        return $return;
     }
 
     return (!_objType ? toString[1].toLowerCase() : toString[1]);
